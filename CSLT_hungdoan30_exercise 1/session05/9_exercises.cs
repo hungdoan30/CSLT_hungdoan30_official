@@ -13,7 +13,7 @@ namespace CSLT_hungdoan30_exercise_1.session05
             bool dangChay = true;
             while (dangChay)
             {
-                HienThi8Bai();
+                HienThi9Bai();
                 string luaChon = Console.ReadLine();
                 Console.WriteLine();
                 switch (luaChon)
@@ -24,8 +24,9 @@ namespace CSLT_hungdoan30_exercise_1.session05
                     case "4": Bai4(); break;
                     case "5": Bai5(); break;
                     case "6": Bai6(); break;
-                    //case "7": Bai7(); break;
-                    //case "8": Bai8(); break;
+                    case "7": Bai7(); break;
+                    case "8": Bai8(); break;
+                    case "9": Bai9(); break;
                     case "0": dangChay = false; break;
                     default: Console.WriteLine("Chọn lại"); break;
 
@@ -45,7 +46,7 @@ namespace CSLT_hungdoan30_exercise_1.session05
 
         }
 
-        static void HienThi8Bai()
+        static void HienThi9Bai()
         {
             Console.WriteLine("1. Bài 1");
             Console.WriteLine("2. Bài 2");
@@ -55,6 +56,7 @@ namespace CSLT_hungdoan30_exercise_1.session05
             Console.WriteLine("6. Bài 6");
             Console.WriteLine("7. Bài 7");
             Console.WriteLine("8. Bài 8");
+            Console.WriteLine("9. Bài 9");
             Console.Write("Chọn bài tập: ");
         }
         // Bài 1: Xác định tam giác thường, cân hay đều
@@ -170,6 +172,83 @@ namespace CSLT_hungdoan30_exercise_1.session05
                 }
                 Console.WriteLine();
             }
+        }
+
+        // Bài 7: Hiển thị n số hạng của chuỗi điều hòa và tính tổng
+
+        static void Bai7()
+        {
+            Console.Write("Nhập số nguyên n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            double sum = 0;
+
+            Console.Write("Chuỗi điều hòa: ");
+
+            for (int i = 1; i <= n; i++)
+            {
+                sum += 1.0 / i;
+
+                if (i == 1)
+                    Console.Write("1");
+                else
+                    Console.Write(" + 1/" + i);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Sum = " + sum);
+        }
+
+        // Bài 8: Tìm số hoàn hảo
+
+        static void Bai8()
+        {
+            Console.Write("Nhập số cần kiểm tra: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int tong = 0;
+            for (int i = 1; i <= n/2; i++)
+            {
+                if (n % i == 0)
+                    tong += i;
+            }
+
+            if (tong == n)
+                Console.WriteLine($"{n} là số hoàn hảo.");
+            else
+                Console.WriteLine($"{n} không phải là số hoàn hảo."); 
+            Console.WriteLine();
+        }
+
+        // Bài 9: Tìm số nguyên tố
+
+        static void Bai9()
+        {
+            Console.Write("Nhập số cần kiểm tra: ");
+            int n = int.Parse(Console.ReadLine());
+
+            if (n < 2)
+            {
+                Console.WriteLine($"{n} không phải là số nguyên tố.");
+                return; 
+            }
+
+            bool nt = true;
+            for (int i = 2; i <= n/2; i++)
+            {
+                if (n % i == 0)
+                {
+                    nt = false;
+                    break;
+                }
+            }
+            if (nt == true)
+            {
+                Console.WriteLine($"{n} là số nguyên tố.");
+            }
+            else
+                { Console.WriteLine($"{n} không phải là số nguyên tố."); }
+            
         }
     }
 }
