@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session04
 {
     internal class ex4
     {
-        static void Main()
+        static void Main1()
         {
             Console.OutputEncoding = Encoding.UTF8;
             Bai1_sochanle();
