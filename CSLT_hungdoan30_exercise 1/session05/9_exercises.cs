@@ -230,7 +230,6 @@ namespace CSLT_hungdoan30_exercise_1.session05
                     Console.WriteLine($"{n}");
                 }
             }
-            Console.ReadLine();
         }
 
         // Bài 9: Tìm số nguyên tố
