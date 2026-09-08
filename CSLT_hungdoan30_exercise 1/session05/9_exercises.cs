@@ -199,25 +199,38 @@ namespace CSLT_hungdoan30_exercise_1.session05
             Console.WriteLine("Sum = " + sum);
         }
 
-        // Bài 8: Tìm số hoàn hảo
+        // Bài 8: Tìm các số hoàn hảo trong 1 khoảng bất kỳ
 
         static void Bai8()
         {
-            Console.Write("Nhập số cần kiểm tra: ");
-            int n = int.Parse(Console.ReadLine());
+            Console.Write("Nhập số đầu tiên của khoảng: ");
+            int start = int.Parse(Console.ReadLine());
 
-            int tong = 0;
-            for (int i = 1; i <= n/2; i++)
+            Console.Write("Nhập số cuối cùng của khoảng: ");
+            int end = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"\nCác số hoàn hảo trong khoảng từ {start} đến {end} là:");
+
+            for (int n = start; n <= end; n++)
             {
-                if (n % i == 0)
-                    tong += i;
-            }
+                if (n <= 0) 
+                    continue;
+                int tong = 0;
+                for (int i = 1; i <= n/2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        tong += i;
+                    }
+                    
+                }          
 
-            if (tong == n)
-                Console.WriteLine($"{n} là số hoàn hảo.");
-            else
-                Console.WriteLine($"{n} không phải là số hoàn hảo."); 
-            Console.WriteLine();
+                if (tong == n)
+                {
+                    Console.WriteLine($"{n}");
+                }
+            }
+            Console.ReadLine();
         }
 
         // Bài 9: Tìm số nguyên tố
