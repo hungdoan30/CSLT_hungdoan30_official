@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session05
 {
     internal class ex2
     {
-        public static void Main1(string[] args)
+        public static void Main123(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             printStartTriangle();
