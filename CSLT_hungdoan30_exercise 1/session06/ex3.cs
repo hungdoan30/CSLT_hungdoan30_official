@@ -17,7 +17,7 @@ namespace CSLT_hungdoan30_exercise_1.session06
         }
 
 
-        public static void Main(string[] args)
+        public static void Main123(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             sinhvien s = new sinhvien();
