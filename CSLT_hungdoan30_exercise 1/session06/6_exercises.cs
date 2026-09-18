@@ -7,7 +7,7 @@ namespace CSLT_hungdoan30_exercise_1.session06
     internal class _6_exercises
     
         {
-            static void Main(string[] args)
+            static void Main5(string[] args)
             {
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
                 Console.WriteLine("Bài 1: Số lớn nhất trong các số 5, 10, 3, 8 là: " + FindMax(5, 10, 3, 8));
