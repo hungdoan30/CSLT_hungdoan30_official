@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session06
 {
     internal class _20_exercises
     {
-        static void Main(string[] args)
+        static void Main9(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
