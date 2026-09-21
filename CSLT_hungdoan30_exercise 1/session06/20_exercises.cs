@@ -23,6 +23,12 @@ namespace CSLT_hungdoan30_exercise_1.session06
                     case "3": Bai3(); break;
                     case "4": Bai4(); break;
                     case "5": Bai5(); break;
+                    case "6": Bai6(); break;
+                    case "7": Bai7(); break;
+                    case "8": Bai8(); break;
+                    case "9": Bai9(); break;
+                    case "10": Bai10(); break;
+                    case "11": Bai11(); break;
                     case "0": dangChay = false; break;
                     default: Console.WriteLine("Chọn lại"); break;
 
@@ -48,6 +54,12 @@ namespace CSLT_hungdoan30_exercise_1.session06
             Console.WriteLine("3. Bài 3");
             Console.WriteLine("4. Bài 4");
             Console.WriteLine("5. Bài 5");
+            Console.WriteLine("6. Bài 6");
+            Console.WriteLine("7. Bài 7");
+            Console.WriteLine("8. Bài 8");
+            Console.WriteLine("9. Bài 9");
+            Console.WriteLine("10. Bài 10");
+            Console.WriteLine("11. Bài 11");
             Console.Write("Chọn bài tập: ");
         }
 
@@ -92,7 +104,45 @@ namespace CSLT_hungdoan30_exercise_1.session06
             string ketQua = DaoNguocChuoi(input5);
             Console.WriteLine($"Chuỗi sau khi đảo ngược: {ketQua}");
         }
-        
+
+        static void Bai6()
+        {
+            int n6 = GetIntInput("Nhập số nguyên dương n: ");
+            Console.WriteLine($"{KiemTraNguyenTo(n6)}\n");
+        }
+
+        static void Bai7()
+        {
+            Console.Write("Nhập số lượng phần tử n: "); int n = int.Parse(Console.ReadLine());
+
+            Console.Write($"{n} số Fibonacci đầu tiên: ");
+            InFibonacci(n);
+        }
+
+        static void Bai8()
+        {
+            Console.Write("Nhập chuỗi bất kỳ: ");
+            string s8 = Console.ReadLine();
+            Console.WriteLine($"{DemNguyenAm(s8)}\n");
+        }
+
+        static void Bai9()
+        {
+            Console.Write("Nhập cơ số x: ");
+            double x = double.Parse(Console.ReadLine());
+            int y = GetIntInput("Nhập số mũ y: ");
+            Console.WriteLine($"{TinhLuyThua(x, y)}\n");
+        }
+
+        static void Bai10()
+        {
+            int[] mang = NhapMangSoNguyen();
+
+            double trungBinh = TinhTrungBinh(mang);
+            Console.WriteLine($"Điểm trung bình: {trungBinh}");
+        }
+
+        static void Bai11()
 
         static int GetIntInput(string prompt)
         {
@@ -103,6 +153,18 @@ namespace CSLT_hungdoan30_exercise_1.session06
                 Console.Write("Nhập lại một số nguyên hợp lệ: ");
             }
             return value;
+        }
+        static int[] NhapMangSoNguyen()
+        {
+            Console.Write("Nhập các số nguyên, cách nhau bởi khoảng trắng: ");
+            string dong = Console.ReadLine();
+            string[] cacChuoiSo = dong.Split(
+                new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            int[] mang = new int[cacChuoiSo.Length];
+            for (int i = 0; i < cacChuoiSo.Length; i++)
+                mang[i] = int.Parse(cacChuoiSo[i]);
+            return mang;
         }
 
         static int TinhTong(int a, int b)
@@ -138,5 +200,60 @@ namespace CSLT_hungdoan30_exercise_1.session06
             return new string(charArray);
         }
 
+        static bool KiemTraNguyenTo(int n)
+        {
+            if (n < 2) return false;
+            for (int i = 2; i <= n/2; i++)
+            {
+                if (n % i == 0) return false;
+            }
+            return true;
+        }
+        
+        static void InFibonacci(int n)
+        {
+            if (n <= 0) return;
+            long soTruoc = 0, soSau = 1;
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(soTruoc + " ");
+                long soTiepTheo = soTruoc + soSau;
+                soTruoc = soSau;
+                soSau = soTiepTheo;
+            }
+            Console.WriteLine();
+        }
+        
+        static int DemNguyenAm(string s)
+        {
+            int dem = 0;
+            const string nguyenAm = "aeoiuAEOIU";
+            foreach (char c in s)
+            {
+                if (nguyenAm.IndexOf(c) >= 0)
+                    dem++;
+            }
+            return dem;
+        }
+        
+        static double TinhLuyThua(double x, int y)
+        {
+            if (y == 0) return 1;
+            double result = 1;
+            int absY = Math.Abs(y);
+
+            for (int i = 0; i < absY; i++)
+                result *= x;
+
+            return y < 0 ? 1.0 / result : result;
+        }
+
+        static double TinhTrungBinh(int[] arr)
+        {
+            int tong = 0;
+            foreach (int so in arr)
+                tong += so;
+            return (double)tong / arr.Length;
+        }
     }
 }
