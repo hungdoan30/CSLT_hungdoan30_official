@@ -29,6 +29,15 @@ namespace CSLT_hungdoan30_exercise_1.session06
                     case "9": Bai9(); break;
                     case "10": Bai10(); break;
                     case "11": Bai11(); break;
+                    case "12": Bai12(); break;
+                    case "13": Bai13(); break;
+                    case "14": Bai14(); break;
+                    case "15": Bai15(); break;
+                    case "16": Bai16(); break;
+                    case "17": Bai17(); break;
+                    case "18": Bai18(); break;
+                    case "19": Bai19(); break;
+                    case "20": Bai20(); break;
                     case "0": dangChay = false; break;
                     default: Console.WriteLine("Chọn lại"); break;
 
@@ -60,6 +69,15 @@ namespace CSLT_hungdoan30_exercise_1.session06
             Console.WriteLine("9. Bài 9");
             Console.WriteLine("10. Bài 10");
             Console.WriteLine("11. Bài 11");
+            Console.WriteLine("12. Bài 12");
+            Console.WriteLine("13. Bài 13");
+            Console.WriteLine("14. Bài 14");
+            Console.WriteLine("15. Bài 15");
+            Console.WriteLine("16. Bài 16");
+            Console.WriteLine("17. Bài 17");
+            Console.WriteLine("18. Bài 18");
+            Console.WriteLine("19. Bài 19");
+            Console.WriteLine("20. Bài 20");
             Console.Write("Chọn bài tập: ");
         }
 
@@ -143,7 +161,72 @@ namespace CSLT_hungdoan30_exercise_1.session06
         }
 
         static void Bai11()
+        {
+            Console.Write("Nhập chuỗi cần kiểm tra: ");
+            string s11 = Console.ReadLine();
+            Console.WriteLine($"{KiemTraDoiXung(s11)}\n");
+        }
 
+        static void Bai12()
+        {
+            double c = GetDoubleInput("Nhập nhiệt độ (C): ");
+            Console.WriteLine($"Từ độ C sang độ F: {CelsiusToFahrenheit(c)}\n");
+        }
+
+        static void Bai13()
+        {
+            int[] mang = NhapMangSoNguyen();
+
+            int min = TimMin(mang);
+            Console.WriteLine($"Giá trị nhỏ nhất: {min}");
+        }
+
+        static void Bai14()
+        {
+            int n14 = GetIntInput("Nhập số nguyên dương n: ");
+            Console.WriteLine($"{TongCacChuSo(n14)}\n");
+        }
+
+        static void Bai15()
+        {
+            int[] mang = NhapMangSoNguyen();
+            Console.Write("Mảng sau khi sắp xếp tăng dần: ");
+            SapXepMang(mang);
+                
+        }
+
+        static void Bai16()
+        {
+            Console.Write("Nhập chuỗi bất kỳ: ");
+            string s16 = Console.ReadLine();
+            Console.WriteLine($"{XoaTrungLap(s16)}\n");
+        }
+        
+        static void Bai17()
+        {
+            int a = GetIntInput("Nhập số a: ");
+            int b = GetIntInput("Nhập số b: ");
+            Console.WriteLine($"UCLN: {UCLN(a, b)}\n");
+        }
+
+        static void Bai18()
+        {
+            int n18 = GetIntInput("Nhập số thập phân: ");
+            Console.WriteLine($"{DecimalToBinary(n18)}\n");
+        }
+
+        static void Bai19()
+        {
+            int year = GetIntInput("Nhập năm: ");
+            Console.WriteLine($"{KiemTraNamNhuan(year)}\n");
+        }
+
+        static void Bai20()
+        {
+            Console.Write("Nhập câu: ");
+            string s20 = Console.ReadLine();
+            Console.WriteLine($"{DemSoTu(s20)}\n");
+        }
         static int GetIntInput(string prompt)
         {
             Console.Write(prompt);
@@ -151,6 +234,17 @@ namespace CSLT_hungdoan30_exercise_1.session06
             while (!int.TryParse(Console.ReadLine(), out value))
             {
                 Console.Write("Nhập lại một số nguyên hợp lệ: ");
+            }
+            return value;
+        }
+
+        static double GetDoubleInput(string prompt)
+        {
+            Console.Write(prompt);
+            double value;
+            while (!double.TryParse(Console.ReadLine(), out value))
+            {
+                Console.Write("Nhập lại số thực: ");
             }
             return value;
         }
@@ -254,6 +348,109 @@ namespace CSLT_hungdoan30_exercise_1.session06
             foreach (int so in arr)
                 tong += so;
             return (double)tong / arr.Length;
+        }
+        
+        static bool KiemTraDoiXung(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return true;
+            
+            string cleanS = s.Replace(" ", "").ToLower();
+            int length = cleanS.Length;
+
+            for (int i = 0; i < length / 2; i++)
+            {
+                if (cleanS[i] != cleanS[length - 1 - i])
+                    return false;
+            }
+            return true;
+        }
+
+        static double CelsiusToFahrenheit(double c)
+        { 
+            return (c * 9.0 / 5.0) + 32;
+        }
+
+        static int TimMin(int[] arr)
+        {
+            int min = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < min) min = arr[i];
+            }
+            return min;
+        }
+
+        static int TongCacChuSo(int n)
+        {
+            int sum = 0;
+            n = Math.Abs(n);
+            while (n>0)
+            {
+                sum += n % 10;
+                n /= 10;
+            }
+            return sum;
+        }
+
+        static void SapXepMang(int[] arr)
+        {
+            Array.Sort(arr);
+            foreach (int so in arr)
+                Console.Write(so + " ");
+            Console.WriteLine();
+        }
+
+        static string XoaTrungLap(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return s;
+
+            string result = "";
+            foreach (char c in s)
+            {
+                if (!result.Contains(c.ToString()))
+                    result += c;
+            }
+            return result;
+
+        }
+        
+        static int UCLN(int a, int b)
+        {
+            a = Math.Abs(a);
+            b = Math.Abs(b);
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        
+        static string DecimalToBinary(int n)
+        {
+            if (n == 0) return "0";
+            string result = "";
+            int tempN = Math.Abs(n);
+
+            while (tempN > 0)
+            {
+                result = (tempN % 2) + result;
+                tempN /= 2;
+            }
+            return n < 0 ? "-" + result : result;
+        }
+
+        static bool KiemTraNamNhuan(int year)
+        {
+            return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        }
+
+        static int DemSoTu (string sentence)
+        {
+            if (string.IsNullOrWhiteSpace(sentence)) return 0;
+            string[] words = sentence.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            return words.Length;
         }
     }
 }
