@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session07
 {
     internal class _8ex_array
     {
-        static void Main (string[] args)
+        static void Main7 (string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             int size = GetIntInput("Nhập số lượng phần tử của mảng: ");
