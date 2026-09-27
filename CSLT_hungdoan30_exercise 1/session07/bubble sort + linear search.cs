@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session07
 {
     internal class bubble_sort___linear_search
     {
-        static void Main(string[] args)
+        static void Main4(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
