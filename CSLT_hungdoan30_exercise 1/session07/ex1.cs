@@ -9,7 +9,7 @@ namespace CSLT_hungdoan30_exercise_1.session07
         // ==========================================
         // 1. ĐIỀU PHỐI CHÍNH (MAIN)
         // ==========================================
-        public static void Main(string[] args)
+        public static void Main6(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
