@@ -76,6 +76,46 @@ namespace CSLT_hungdoan30_exercise_1.session09
             }
             return count;
         }
+        static string SeparateCharacters(string s)
+        {
+            string result = "";
+            foreach (char c in s)
+            {
+                result += c + " ";
+            }
+            return result.TrimEnd();
+        }
+
+        static string ReverseStringCharacters(string s)
+        {
+            string result = "";
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                result += s[i] + " ";
+            }
+            return result.TrimEnd();
+        }
+        static int CountWords(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return 0;
+
+            int count = 0;
+            bool inWord = false; 
+
+            foreach (char c in s)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    inWord = false;
+                }
+                else if (!inWord)
+                {
+                    count++;
+                    inWord = true;
+                }
+            }
+            return count;
+        }
 
 
     }
