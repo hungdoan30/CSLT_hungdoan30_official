@@ -100,7 +100,7 @@ namespace CSLT_hungdoan30_exercise_1.session09
             if (string.IsNullOrWhiteSpace(s)) return 0;
 
             int count = 0;
-            bool inWord = false; 
+            bool inWord = false;
 
             foreach (char c in s)
             {
@@ -116,7 +116,92 @@ namespace CSLT_hungdoan30_exercise_1.session09
             }
             return count;
         }
+        static bool CompareStrings(string s1, string s2)
+        {
+            int len1 = GetStringLength(s1);
+            int len2 = GetStringLength(s2);
+
+            if (len1 != len2) return false;
+
+            for (int i = 0; i < len1; i++)
+            {
+                if (s1[i] != s2[i]) return false;
+            }
+            return true;
+        }
+        static (int Alphas, int Digits, int Specials) CountCharacterTypes(string s)
+        {
+            int a = 0, d = 0, sp = 0;
+            foreach (char c in s)
+            {
+                if (char.IsLetter(c)) a++;
+                else if (char.IsDigit(c)) d++;
+                else if (!char.IsWhiteSpace(c)) sp++; // Không tính khoảng trắng là ký tự đặc biệt
+            }
+            return (a, d, sp);
+        }
+
+        static (int Vowels, int Consonants) CountVowelsAndConsonants(string s)
+        {
+            int v = 0, c = 0;
+            string vowels = "aeiouAEIOU";
+
+            foreach (char ch in s)
+            {
+                if (char.IsLetter(ch))
+                {
+                    if (vowels.Contains(ch)) v++;
+                    else c++;
+                }
+            }
+            return (v, c);
+        }
+
+        static int FindSubstringPosition(string s, string sub)
+        {
+            if (string.IsNullOrEmpty(sub)) return -1;
+            return s.IndexOf(sub);
+        }
+
+        static string CheckCharacterCase(char c)
+            {
+                if (!char.IsLetter(c)) return "Đây không phải là chữ cái (Alphabet).";
+
+                if (char.IsUpper(c)) return "Đây là chữ cái IN HOA.";
+                else return "Đây là chữ cái in thường.";
+            }
+        
+
+        static int CountSubstringOccurrences(string s, string sub)
+            {
+                if (string.IsNullOrEmpty(sub)) return 0;
+
+                int count = 0;
+                int idx = 0;
+
+                while ((idx = s.IndexOf(sub, idx)) != -1)
+                {
+                    count++;
+                    idx += sub.Length;
+                }
+                return count;
+            }
+
+        static string InsertBeforeSubstring(string s, string targetSub, string insertStr)
+            {
+                int idx = s.IndexOf(targetSub);
+                if (idx == -1) return s; // Nếu không tìm thấy targetSub thì giữ nguyên chuỗi gốc
+
+                // Cắt chuỗi làm đôi tại vị trí idx, nhét insertStr vào giữa
+                string leftPart = s.Substring(0, idx);
+                string rightPart = s.Substring(idx);
+
+                return leftPart + insertStr + rightPart;
+            }
 
 
+
+
+        
     }
 }
