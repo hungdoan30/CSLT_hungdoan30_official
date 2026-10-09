@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session09
 {
     internal class stringexercise
     {
-        static void Main(string[] args)
+        static void Main6(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -136,7 +136,7 @@ namespace CSLT_hungdoan30_exercise_1.session09
             {
                 if (char.IsLetter(c)) a++;
                 else if (char.IsDigit(c)) d++;
-                else if (!char.IsWhiteSpace(c)) sp++; // Không tính khoảng trắng là ký tự đặc biệt
+                else if (!char.IsWhiteSpace(c)) sp++; 
             }
             return (a, d, sp);
         }
@@ -190,9 +190,9 @@ namespace CSLT_hungdoan30_exercise_1.session09
         static string InsertBeforeSubstring(string s, string targetSub, string insertStr)
             {
                 int idx = s.IndexOf(targetSub);
-                if (idx == -1) return s; // Nếu không tìm thấy targetSub thì giữ nguyên chuỗi gốc
+                if (idx == -1) return s; 
 
-                // Cắt chuỗi làm đôi tại vị trí idx, nhét insertStr vào giữa
+               
                 string leftPart = s.Substring(0, idx);
                 string rightPart = s.Substring(idx);
 

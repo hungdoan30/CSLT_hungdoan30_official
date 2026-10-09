@@ -6,7 +6,7 @@ namespace CSLT_hungdoan30_exercise_1.session07
 {
     internal class matrix
     {
-        static void Main(string[] args)
+        static void Main8(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             // 1. Tạo và in ma trận ngẫu nhiên
